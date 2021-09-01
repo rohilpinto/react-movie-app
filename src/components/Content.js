@@ -1,15 +1,28 @@
 import styled from "styled-components";
 import React from "react";
-
+import { MediaQuery } from "../MediaQueries";
 const ContentContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  grid-template-columns: repeat(4, minmax(250px, 1fr));
   justify-items: center;
   align-items: center;
   grid-row-gap: 30px;
   grid-column-gap: 5px;
   justify-content: center;
   justify-items: center;
+
+  ${MediaQuery("lg")`
+     grid-template-columns: repeat(4, minmax(250px, 1fr));
+  `}
+  ${MediaQuery("md")`
+     grid-template-columns: repeat(3, minmax(250px, 1fr));
+  `}
+  ${MediaQuery("sm")`
+     grid-template-columns: repeat(1, minmax(250px, 1fr));
+  `}
+  ${MediaQuery("xs")`
+     grid-template-columns: repeat(1, minmax(250px, 1fr));
+  `}
 `;
 
 const ContentWrapper = styled.div`
