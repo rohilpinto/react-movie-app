@@ -1,10 +1,19 @@
 import "./App.scss";
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import GlobalStyle from "./GlobalStyles";
 import Content from "./components/Content";
 
 const KEY = process.env.REACT_APP_MOVIE_API_KEY;
 
 // console.log(KEY);
+
+const MainWrapper = styled.div`
+  width: 100%;
+ 
+  /* height: ; */
+  background: grey;
+`;
 
 function App() {
   const [popularMovies, setPopularMovies] = useState([]);
@@ -29,7 +38,10 @@ function App() {
 
   return (
     <div className="App">
-      <Content popularMovies={popularMovies} setPopularMovies={setPopularMovies}></Content>
+      <MainWrapper>
+        <GlobalStyle />
+        <Content popularMovies={popularMovies} setPopularMovies={setPopularMovies}></Content>
+      </MainWrapper>
     </div>
   );
 }
