@@ -1,6 +1,11 @@
 import styled from "styled-components";
 import React from "react";
 import { MediaQuery } from "../MediaQueries";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+
+import MovieContent from "./MovieContent";
+
 const ContentContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(4, minmax(250px, 1fr));
@@ -38,17 +43,24 @@ const ContentWrapper = styled.div`
 
 const Content = ({ popularMovies, setPopularMovies }) => {
   return (
-    <ContentContainer>
-      {popularMovies?.results?.map(({ id, name, poster_path, backdrop_path }) => {
-        console.log(backdrop_path);
-        return (
-          <ContentWrapper key={id}>
-            <img src={`http://image.tmdb.org/t/p/w200/${poster_path}`} alt="" />
-            <h3>{name}</h3>
-          </ContentWrapper>
-        );
-      })}
-    </ContentContainer>
+    <Router>
+      <ContentContainer>
+        {popularMovies?.results?.map(({ id, name, poster_path, backdrop_path }) => {
+          console.log(backdrop_path);
+          return (
+            <ContentWrapper key={id}>
+              <img src={`http://image.tmdb.org/t/p/w200/${poster_path}`} alt="" />
+
+              <Link to={`/${name}`}>
+                <h3>{name}</h3>
+              </Link>
+
+              {/* <Route path="/Movie-content" component={MovieContent} /> */}
+            </ContentWrapper>
+          );
+        })}
+      </ContentContainer>
+    </Router>
   );
 };
 
