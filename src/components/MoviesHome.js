@@ -1,10 +1,9 @@
 import styled from "styled-components";
 import React from "react";
 import { MediaQuery } from "../MediaQueries";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-// import { Link } from "react-router-dom";
-
-import MovieContent from "./MovieContent";
+// import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+// import MovieContent from "./MovieContent";
 
 const ContentContainer = styled.div`
   display: grid;
@@ -41,27 +40,25 @@ const ContentWrapper = styled.div`
   text-align: center;
 `;
 
-const Content = ({ popularMovies, setPopularMovies }) => {
+const MoviesHome = ({ popularMovies, setPopularMovies }) => {
   return (
-    <Router>
-      <ContentContainer>
-        {popularMovies?.results?.map(({ id, name, poster_path, backdrop_path }) => {
-          console.log(backdrop_path);
-          return (
-            <ContentWrapper key={id}>
-              <img src={`http://image.tmdb.org/t/p/w200/${poster_path}`} alt="" />
+    <ContentContainer>
+      {popularMovies?.results?.map(({ id, name, poster_path, backdrop_path }) => {
+        console.log(backdrop_path);
+        return (
+          <ContentWrapper key={id}>
+            <img src={`http://image.tmdb.org/t/p/w200/${poster_path}`} alt="" />
 
-              <Link to={`/${name}`}>
-                <h3>{name}</h3>
-              </Link>
+            <Link to={`/${name}`}>
+              <h3>{name}</h3>
+            </Link>
 
-              {/* <Route path="/Movie-content" component={MovieContent} /> */}
-            </ContentWrapper>
-          );
-        })}
-      </ContentContainer>
-    </Router>
+            {/* <Route path="/Movie-content" component={MovieContent} /> */}
+          </ContentWrapper>
+        );
+      })}
+    </ContentContainer>
   );
 };
 
-export default Content;
+export default MoviesHome;
