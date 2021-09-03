@@ -3,8 +3,6 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import GlobalStyle from "./GlobalStyles";
 import Content from "./components/Content";
-import { Router } from "react-router-dom";
-// import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const KEY = process.env.REACT_APP_MOVIE_API_KEY;
 
