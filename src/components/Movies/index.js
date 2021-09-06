@@ -2,15 +2,16 @@ import React, { useState, useEffect } from "react";
 
 import GlobalStyle from "../../GlobalStyles";
 import MoviesHome from "../MoviesHome/index";
-import { MainWrapper } from "./style";
+import { MainWrapper, PageButtons, PageButtonWrapper } from "./style";
 import SearchBar from "../SearchBar";
 
 const KEY = process.env.REACT_APP_MOVIE_API_KEY;
 
 const Movies = () => {
+  const [page, setPage] = useState(1);
   const [popularMovies, setPopularMovies] = useState([]);
 
-  const url = `https://api.themoviedb.org/3/movie/popular?api_key=${KEY}&language=en-US&page=1`;
+  const url = `https://api.themoviedb.org/3/movie/popular?api_key=${KEY}&language=en-US&page=${page}`;
 
   const fetchData = async () => {
     try {
@@ -24,16 +25,26 @@ const Movies = () => {
   };
 
   useEffect(() => {
-    console.log("this is movie");
+    // console.log("this is movie");
     fetchData();
-  }, []);
+  }, [page]);
 
+  // console.log(page, "this is page state");
   return (
     <div>
       <MainWrapper>
         <GlobalStyle />
         <SearchBar></SearchBar>
         <MoviesHome popularMovies={popularMovies} setPopularMovies={setPopularMovies}></MoviesHome>
+
+        <PageButtonWrapper>
+          <PageButtons style={{ visibility: page > 1 ? "visible" : "hidden" }} onClick={() => setPage(page - 1)}>
+            Previous {page - 1}
+          </PageButtons>
+          <PageButtons className="next-btn" onClick={() => setPage(page + 1)}>
+            Next {page}
+          </PageButtons>
+        </PageButtonWrapper>
       </MainWrapper>
     </div>
   );
