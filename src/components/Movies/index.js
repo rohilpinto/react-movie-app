@@ -25,11 +25,9 @@ const Movies = () => {
   };
 
   useEffect(() => {
-    // console.log("this is movie");
     fetchData();
   }, [page]);
 
-  // console.log(page, "this is page state");
   return (
     <div>
       <MainWrapper>

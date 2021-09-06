@@ -22,7 +22,6 @@ const MovieDetails = ({ match }) => {
 
   useEffect(() => {
     getDetails();
-    // console.log(match);
   }, []);
   console.log(MovieDetails);
   return (
