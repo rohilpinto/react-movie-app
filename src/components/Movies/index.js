@@ -1,21 +1,16 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
-import GlobalStyle from "../GlobalStyles";
-import MoviesHome from "./MoviesHome";
-// import MovieContent from "./MovieContent";
+
+import GlobalStyle from "../../GlobalStyles";
+import MoviesHome from "../MoviesHome/index";
+import { MainWrapper } from "./style";
+import SearchBar from "../SearchBar";
 
 const KEY = process.env.REACT_APP_MOVIE_API_KEY;
-
-const MainWrapper = styled.div`
-  width: 100%;
-  background: grey;
-`;
 
 const Movies = () => {
   const [popularMovies, setPopularMovies] = useState([]);
 
-  // const url = `https://api.themoviedb.org/3/movie/550?api_key=${KEY}`;
-  const url = `https://api.themoviedb.org/3/discover/tv?api_key=${KEY}&certification_country=US&certification.lte=G&sort_by=popularity.desc&page=1`;
+  const url = `https://api.themoviedb.org/3/movie/popular?api_key=${KEY}&language=en-US&page=1`;
 
   const fetchData = async () => {
     try {
@@ -29,6 +24,7 @@ const Movies = () => {
   };
 
   useEffect(() => {
+    console.log("this is movie");
     fetchData();
   }, []);
 
@@ -36,6 +32,7 @@ const Movies = () => {
     <div>
       <MainWrapper>
         <GlobalStyle />
+        <SearchBar></SearchBar>
         <MoviesHome popularMovies={popularMovies} setPopularMovies={setPopularMovies}></MoviesHome>
       </MainWrapper>
     </div>

@@ -2,20 +2,25 @@ import "./App.scss";
 import React from "react";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import MoviesHome from "./components/Movies";
+import Movies from "./components/Movies";
+// import MoviesHome from "./components/MoviesHome";
 import MovieDetails from "./components/MovieDetails";
 
-// console.log(KEY);
+import styled from "styled-components";
+
+const AppWrapper = styled.div`
+  padding: 60px;
+`;
 
 const App = () => {
   return (
     <Router>
-      <div className="App">
+      <AppWrapper className="App">
         <Switch>
-          <Route path="/" exact component={MoviesHome} />
+          <Route path="/" exact component={Movies} />
           <Route path="/:id" component={MovieDetails} />
         </Switch>
-      </div>
+      </AppWrapper>
     </Router>
   );
 };
