@@ -13,19 +13,20 @@ const Movies = () => {
 
   const url = `https://api.themoviedb.org/3/movie/popular?api_key=${KEY}&language=en-US&page=${page}`;
 
-  const fetchData = async () => {
-    try {
-      const response = await fetch(url);
-      const MovieList = await response.json();
-
-      setPopularMovies(MovieList);
-    } catch (error) {
-      console.log("error", error);
-    }
-  };
-
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(url);
+        const MovieList = await response.json();
+
+        setPopularMovies(MovieList);
+      } catch (error) {
+        console.log("error", error);
+      }
+    };
     fetchData();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
   return (

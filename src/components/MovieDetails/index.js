@@ -9,19 +9,21 @@ const MovieDetails = ({ match }) => {
 
   const url = `https://api.themoviedb.org/3/movie/${params}?api_key=${KEY}`;
 
-  const getDetails = async () => {
-    try {
-      const fetchMovieDetails = await fetch(url);
-      const MovieData = await fetchMovieDetails.json();
-
-      setMovieDetails(MovieData);
-    } catch (error) {
-      console.log(`error ${error}`);
-    }
-  };
-
   useEffect(() => {
+    const getDetails = async () => {
+      try {
+        const fetchMovieDetails = await fetch(url);
+        const MovieData = await fetchMovieDetails.json();
+
+        setMovieDetails(MovieData);
+      } catch (error) {
+        console.log(`error ${error}`);
+      }
+    };
+
     getDetails();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   console.log(MovieDetails);
   return (
