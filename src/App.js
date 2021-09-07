@@ -7,6 +7,7 @@ import Movies from "./components/Movies";
 import MovieDetails from "./components/MovieDetails";
 
 import styled from "styled-components";
+import ScrollToTop from "./components/ScrollToTop";
 
 const AppWrapper = styled.div`
   padding: 60px;
@@ -15,6 +16,7 @@ const AppWrapper = styled.div`
 const App = () => {
   return (
     <Router>
+      <ScrollToTop></ScrollToTop>
       <AppWrapper className="App">
         <Switch>
           <Route path="/" exact component={Movies} />

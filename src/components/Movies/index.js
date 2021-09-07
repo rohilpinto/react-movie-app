@@ -4,6 +4,7 @@ import GlobalStyle from "../../GlobalStyles";
 import MoviesHome from "../MoviesHome/index";
 import { MainWrapper, PageButtons, PageButtonWrapper } from "./style";
 import SearchBar from "../SearchBar";
+ 
 
 const KEY = process.env.REACT_APP_MOVIE_API_KEY;
 
@@ -40,7 +41,19 @@ const Movies = () => {
           <PageButtons style={{ visibility: page > 1 ? "visible" : "hidden" }} onClick={() => setPage(page - 1)}>
             Previous {page - 1}
           </PageButtons>
-          <PageButtons className="next-btn" onClick={() => setPage(page + 1)}>
+          <PageButtons
+            className="next-btn"
+            onClick={() =>
+              setPage(
+                page + 1,
+                window.scrollTo({
+                  top: 100,
+                  left: 100,
+                  behavior: "smooth",
+                })
+              )
+            }
+          >
             Next {page}
           </PageButtons>
         </PageButtonWrapper>
