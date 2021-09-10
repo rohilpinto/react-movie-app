@@ -1,3 +1,4 @@
 {
-  "editor.fontFamily": "monospace"
+  "editor.fontFamily": "'dank mono', monospace",
+  "terminal.integrated.fontFamily": "'dank mono', monospace"
 }

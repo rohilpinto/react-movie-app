@@ -35,4 +35,6 @@ export const SearchInput = styled.input`
   }
 `;
 
-export const Form = styled.form``;
+export const Form = styled.form`
+  position: relative;
+`;

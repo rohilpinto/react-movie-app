@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+// import Loader from "react-loaders";
 const KEY = process.env.REACT_APP_MOVIE_API_KEY;
 
 const MovieDetails = ({ match }) => {
@@ -14,7 +14,7 @@ const MovieDetails = ({ match }) => {
       try {
         const fetchMovieDetails = await fetch(url);
         const MovieData = await fetchMovieDetails.json();
-
+        
         setMovieDetails(MovieData);
       } catch (error) {
         console.log(`error ${error}`);
