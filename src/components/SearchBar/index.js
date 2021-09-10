@@ -41,9 +41,9 @@ const SearchBar = () => {
         <HamMenuIcon src={MenuIcon} />
       </HamburgerWrapper>
       <Form onSubmit={handleSubmit}>
-        <SearchInput type="text" value={value} placeholder="Search" onChange={(e) => setValue(e.target.value)} />
+        <SearchInput type="text" value={value.split(" ").join("")} placeholder="Search" onChange={(e) => setValue(e.target.value)} />
 
-        <SearchResults searchResults={searched}></SearchResults>
+        <SearchResults searchResults={searched} value={value}></SearchResults>
       </Form>
     </SearchBarWrapper>
   );

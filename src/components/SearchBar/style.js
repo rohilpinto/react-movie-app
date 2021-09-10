@@ -20,7 +20,7 @@ export const HamburgerWrapper = styled.div`
 `;
 
 export const SearchInput = styled.input`
-  width: 400px;
+  width: 500px;
   min-width: 300px;
   padding: 3px;
   height: 40px;
