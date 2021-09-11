@@ -8,7 +8,10 @@ export const SearchBarWrapper = styled.div`
   justify-content: space-between;
 `;
 
-export const HamMenuIcon = styled.img``;
+export const HamMenuIcon = styled.img`
+  width: 50px;
+  /* border-radius: 8px; */
+`;
 
 export const HamburgerWrapper = styled.div`
   width: 50px;
@@ -38,3 +41,5 @@ export const SearchInput = styled.input`
 export const Form = styled.form`
   position: relative;
 `;
+
+// export const ReleaseDate = styled
