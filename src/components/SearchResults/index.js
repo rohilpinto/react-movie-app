@@ -21,11 +21,11 @@ const SearchResults = ({ searchResults }) => {
       {results?.slice(0, 7).map(({ id, original_title, poster_path, release_date, vote_average, genre_ids }) => {
         const year = release_date?.slice(0, 4);
 
-        let final = movieGenreArray.filter((genre) => genre.id == genre_ids[0]);
+        let final = movieGenreArray.filter((genre) => genre.id === genre_ids[2]);
         console.log(final);
         return (
           <Link to={`/${id}`}>
-            <ResultCard>
+            <ResultCard key={id}>
               <MovieImageWrapper>
                 <MovieImage src={`https://image.tmdb.org/t/p/w200/${poster_path}`} />
               </MovieImageWrapper>
@@ -36,16 +36,16 @@ const SearchResults = ({ searchResults }) => {
 
                 <TextWrapper>
                   <ContentWrapper>
-                    <img src={yearLogo} alt="" />
+                    <img src={yearLogo} alt={original_title} />
                     <p>{year}</p>
                   </ContentWrapper>
                   <ContentWrapper>
-                    <img src={rating} alt="" />
+                    <img src={rating} alt={original_title} />
                     <p>{vote_average}</p>
                   </ContentWrapper>
                   <ContentWrapper>
-                    <img src={genre} alt="" />
-                    <p>{final.map((obj) => obj.name)}</p>
+                    <img src={genre} alt={original_title} />
+                    <p>{final.map((obj) => obj.name)} </p>
                   </ContentWrapper>
                 </TextWrapper>
               </MovieTextContentWrapper>

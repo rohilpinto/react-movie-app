@@ -17,23 +17,33 @@ export const SearchResultsWrapper = styled.div`
   z-index: 5;
   border-radius: 8px;
 
-  background-color: #dadbdbbd;
+  background: linear-gradient(269.94deg, #cfffff 0.05%, rgb(193 255 251 / 79%) 155.99%);
   backdrop-filter: blur(20px);
 
   a {
     text-decoration: none;
     color: #fff;
   }
+
+  transition: all 0.5s ease;
 `;
 export const ResultCard = styled.div`
   /* width: 100%; */
   height: 100px;
   /* border: 1px solid black; */
-  background: rgba(0, 0, 0, 0.5);
+  /* background: rgba(0, 0, 0, 0.5); */
+  background: linear-gradient(90.47deg, rgb(0 0 0 / 26%) 0.4%, rgb(48 48 48 / 24%) 99.72%);
+
   border-radius: 3px;
   margin: 5px 5px;
   display: flex;
   padding: 5px;
+  transition: all 0.1s ease-in-out;
+  cursor: pointer;
+  &:hover {
+    background-color: #6464648a;
+    transform: scale(0.9);
+  }
 `;
 
 export const MovieImageWrapper = styled.div`
@@ -47,7 +57,7 @@ export const MovieTextContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: 5px;
+  margin: 5px 10px;
 `;
 export const TitleWrapper = styled.div``;
 
@@ -59,7 +69,8 @@ export const TextWrapper = styled.div`
 export const ContentWrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  width: 120px;
 
   img {
     margin-right: 5px;
@@ -67,7 +78,7 @@ export const ContentWrapper = styled.div`
     height: 20px;
   }
   p {
-    color: #d7d7d7;
+    color: #ededed;
   }
 `;
 export const Title = styled.h1`

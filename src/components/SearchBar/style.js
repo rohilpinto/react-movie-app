@@ -25,16 +25,20 @@ export const HamburgerWrapper = styled.div`
 export const SearchInput = styled.input`
   width: 500px;
   min-width: 300px;
-  padding: 3px;
+  padding: 3px 5px;
   height: 40px;
   border: 1px solid rgba(0, 0, 0);
   font-size: 20px;
   border: none;
   border-radius: 5px;
-  background: grey;
+  :focus-visible {
+    outline: 3px dashed #8e9dff;
+  }
 
+  background: linear-gradient(269.94deg, #04d5d5 0.05%, rgba(3, 255, 240, 0.794583) 155.99%);
   ::placeholder {
     color: white;
+    padding: 5px;
   }
 `;
 

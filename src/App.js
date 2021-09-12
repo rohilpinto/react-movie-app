@@ -8,7 +8,7 @@ import MovieDetails from "./components/MovieDetails";
 import SearchedMovies from "./components/SearchedMovies";
 import styled from "styled-components";
 import ScrollToTop from "./components/ScrollToTop";
-import ErrorPage from "./ErrorPage";
+// import ErrorPage from "./ErrorPage";
 
 const AppWrapper = styled.div`
   padding: 60px;

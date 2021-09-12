@@ -34,6 +34,8 @@ const SearchBar = () => {
     };
 
     fetchSearch();
+
+      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
 
   // console.log(value)
@@ -45,7 +47,7 @@ const SearchBar = () => {
       <Form onSubmit={handleSubmit}>
         <SearchInput type="text" value={value} placeholder="Search" onChange={(e) => setValue(e.target.value)} />
 
-        <SearchResults searchResults={searched} value={value}></SearchResults>
+        {value > 0 ? <SearchResults searchResults={searched} value={value}></SearchResults> : null}
       </Form>
     </SearchBarWrapper>
   );

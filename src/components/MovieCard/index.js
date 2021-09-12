@@ -4,7 +4,7 @@ import Rating from "react-rating";
 import { Link } from "react-router-dom";
 import { MovieTitle } from "./style";
 
-import { css } from "@emotion/react";
+// import { css } from "@emotion/react";
 import ClipLoader from "react-spinners/ClipLoader";
 import starUnfilled from "../../assets/star-unfilled.svg";
 import starFilled from "../../assets/star-filled.svg";
