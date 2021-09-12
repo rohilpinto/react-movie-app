@@ -19,6 +19,11 @@ export const SearchResultsWrapper = styled.div`
 
   background-color: #dadbdbbd;
   backdrop-filter: blur(20px);
+
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
 `;
 export const ResultCard = styled.div`
   /* width: 100%; */
@@ -50,6 +55,21 @@ export const TextWrapper = styled.div`
   display: flex;
   justify-content: space-between;
 `;
+
+export const ContentWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    margin-right: 5px;
+    width: 20px;
+    height: 20px;
+  }
+  p {
+    color: #d7d7d7;
+  }
+`;
 export const Title = styled.h1`
   font-size: 16px;
   color: black;
@@ -59,7 +79,6 @@ export const MovieImage = styled.img`
   width: 70px;
   height: 100%;
   object-fit: cover;
-
   border-radius: 5px;
   backface-visibility: hidden;
 `;

@@ -25,6 +25,7 @@ const App = () => {
           <Route path="/searched/:id" exact component={SearchedMovies} />
           {/* <Route component={ErrorPage} /> */}/
         </Switch>
+        
       </AppWrapper>
     </Router>
   );
