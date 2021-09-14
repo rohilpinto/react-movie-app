@@ -5,13 +5,6 @@ export const MainWrapper = styled.div`
   background: #ffff;
 `;
 
-export const PageButtons = styled.button`
-  width: 100px;
-  height: 50px;
-
-  background-color: red;
-`;
-
 export const PageButtonWrapper = styled.div`
   width: 100%;
   display: flex;
@@ -22,4 +15,47 @@ export const PageButtonWrapper = styled.div`
     justify-self: flex-end;
     align-self: flex-end;
   } */
+`;
+
+export const PageButtons = styled.button`
+  max-width: 150px;
+  width: 100%;
+  height: 40px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  /* background-color: #74d6e9f5; */
+  border: none;
+  background: rgba(3, 255, 240, 0.794583);
+  color: black;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-out;
+
+  &:hover {
+    background: rgb(3 227 214 / 79%);
+  }
+  &:active {
+    transform: scale(0.9);
+  }
+`;
+
+export const TextWrapper = styled.div`
+  font-size: 12px;
+  margin: 5px;
+`;
+
+export const ArrowsWrapper = styled.div`
+  display: flex;
+  margin: 5px;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const Arrows = styled.img`
+  width: 15px;
+  /* margin-left: 5px;
+  margin-right: 5px; */
+  /* margin: 5px; */
 `;

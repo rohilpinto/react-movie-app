@@ -14,7 +14,7 @@ const MovieDetails = ({ match }) => {
       try {
         const fetchMovieDetails = await fetch(url);
         const MovieData = await fetchMovieDetails.json();
-        
+
         setMovieDetails(MovieData);
       } catch (error) {
         console.log(`error ${error}`);
@@ -25,7 +25,7 @@ const MovieDetails = ({ match }) => {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  console.log(MovieDetails);
+  // console.log(MovieDetails);
   return (
     <div>
       <h1>{MovieDetails?.title}</h1>

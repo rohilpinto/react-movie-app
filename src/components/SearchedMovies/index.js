@@ -1,10 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 import { useParams } from "react-router-dom";
 const SearchedMovies = () => {
   let { id } = useParams();
 
-  console.log(id);
   return <div>searched movies</div>;
 };
 

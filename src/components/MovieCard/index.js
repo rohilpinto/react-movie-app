@@ -13,7 +13,7 @@ const MovieCard = ({ movie, isLoading }) => {
   const { id, poster_path, original_title, vote_average } = movie;
   const [imgLoaded, setImgLoaded] = useState(false);
 
-  const vote = Math.ceil(vote_average) - 4;
+  const vote = Math.ceil(vote_average) / 2;
   // console.log(imgLoaded);
   // console.log(original_title);
   return (
