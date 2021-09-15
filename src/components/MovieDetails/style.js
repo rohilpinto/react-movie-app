@@ -20,7 +20,7 @@ export const MovieImageContainer = styled.div`
 
 export const MovieImage = styled.img`
   height: 500px;
-  object-fit: cover;
+  border-radius: 8px;
 `;
 
 export const MovieTextContentWrapper = styled.div`
@@ -50,24 +50,23 @@ export const IconWrapper = styled.div`
   h4 {
     font-weight: 300;
   }
-`;
-
-export const FavoriteIconImg = styled.div`
-  width: 30px;
-  margin-left: 10px;
-  transition: all 0.1s;
 
   .favorite-icon {
-    fill: none;
-    stroke: #000;
-    stroke-width: 2px;
-    transition: all 0.2s linear;
-    &:hover {
-      transform: scale(1.2);
-      fill: black;
+    width: 30px;
+    margin-left: 10px;
+    transition: all 0.1s;
+
+    &:active {
+      transform: scale(0.9);
     }
   }
 `;
+
+// export const FavoriteIconImg = styled.div`
+//   width: 30px;
+//   margin-left: 10px;
+//   transition: all 0.1s;
+// `;
 
 export const OverviewWrapper = styled.div``;
 export const Overview = styled.p`
