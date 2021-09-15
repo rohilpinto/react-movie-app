@@ -13,12 +13,13 @@ export const fetchSearchResults = () => {
       const state = getState();
       const SearchUrl = `https://api.themoviedb.org/3/search/movie?api_key=${KEY}&language=en-US&query=${state.searchValueReducer}&include_adult=false`;
       const fetchResults = await fetch(SearchUrl);
-      const data = await fetchResults.json();
-      dispatch({ type: "FETCH_POST_SUCCESS", data });
+      const finalResp = await fetchResults.json();
+
+      dispatch({ type: "FETCH_POST_SUCCESS", payload: finalResp });
     } catch (error) {
       dispatch({
         type: "FETCH_POST_FAILURE",
-        
+        error,
       });
     }
   };

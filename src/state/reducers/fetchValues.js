@@ -16,7 +16,7 @@ const fetchedDataReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-         
+
         data: action.payload,
       };
     case "FETCH_POST_FAILURE":

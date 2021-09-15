@@ -9,7 +9,7 @@ import SearchedMovies from "./components/SearchedMovies";
 import styled from "styled-components";
 import ScrollToTop from "./components/ScrollToTop";
 // import ErrorPage from "./ErrorPage";
-
+import GlobalStyle from "./GlobalStyles";
 const AppWrapper = styled.div`
   padding: 60px;
 `;
@@ -17,6 +17,7 @@ const AppWrapper = styled.div`
 const App = () => {
   return (
     <Router>
+      <GlobalStyle></GlobalStyle>
       <ScrollToTop></ScrollToTop>
       <AppWrapper className="App">
         <Switch>
@@ -25,7 +26,6 @@ const App = () => {
           <Route path="/searched/:id" exact component={SearchedMovies} />
           {/* <Route component={ErrorPage} /> */}/
         </Switch>
-        
       </AppWrapper>
     </Router>
   );

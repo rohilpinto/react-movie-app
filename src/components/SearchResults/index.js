@@ -16,16 +16,10 @@ const SearchResults = ({ searchResults }) => {
   const movieGenreArray = MovieGeneres.genres;
   const [imgLoaded, setImgLoaded] = useState(false);
   const movieSearchResults = useSelector((state) => state.fetchedDataReducer);
-
-  const somefunc = () => {
-    if (loading) {
-      return <h1>loading</h1>;
-    }
-  };
-
+  console.log(movieSearchResults);
   return (
     <SearchResultsWrapper>
-      {movieSearchResults.results?.slice(0, 7).map(({ id, original_title, poster_path, release_date, vote_average, genre_ids }) => {
+      {movieSearchResults.data.results?.slice(0, 7).map(({ id, original_title, poster_path, release_date, vote_average, genre_ids }) => {
         const year = release_date?.slice(0, 4);
 
         let final = movieGenreArray.filter((genre) => genre.id === genre_ids[2]);

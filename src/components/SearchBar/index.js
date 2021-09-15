@@ -27,7 +27,7 @@ const SearchBar = () => {
 
     history.push(`/searched/${searchValue}`);
 
-    setValue("");
+    // setValue("");
 
     dispatch(setSearchValueAction(""));
   };
@@ -64,7 +64,7 @@ const SearchBar = () => {
         {/* <SearchInput type="text" value={value} placeholder="Movie Name" onChange={(e) => setValue(e.target.value)} /> */}
         <SearchInput type="text" value={searchValue} placeholder="Enter movie name" onChange={(e) => dispatch(setSearchValueAction(e.target.value))} />
 
-        {searchValue > 0 ? <SearchResults searchResults={searched}></SearchResults> : null}
+        {searchValue !== "" ? <SearchResults searchResults={searched}></SearchResults> : null}
       </Form>
     </SearchBarWrapper>
   );
