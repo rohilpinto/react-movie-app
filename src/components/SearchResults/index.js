@@ -7,12 +7,11 @@ import { Link } from "react-router-dom";
 import rating from "../../assets/star-filled.svg";
 import genre from "../../assets/genre.svg";
 import yearLogo from "../../assets/year.svg";
-import ClipLoader from "react-spinners/ClipLoader";
+// import ClipLoader from "react-spinners/ClipLoader";
 
 import { useSelector } from "react-redux";
 
-const SearchResults = ({ searchResults }) => {
-  const { results } = searchResults;
+const SearchResults = () => {
   const movieGenreArray = MovieGeneres.genres;
   const [imgLoaded, setImgLoaded] = useState(false);
   const movieSearchResults = useSelector((state) => state.fetchedDataReducer);
@@ -27,7 +26,7 @@ const SearchResults = ({ searchResults }) => {
         const vote = Math.ceil(vote_average) / 2;
         return (
           <React.Fragment key={id}>
-            <Link to={`/${id}`}>
+            <Link to={`/movie/${id}`}>
               <ResultCard>
                 <MovieImageWrapper>
                   <MovieImage src={`https://image.tmdb.org/t/p/w200/${poster_path}`} onLoad={() => setImgLoaded(true)} />

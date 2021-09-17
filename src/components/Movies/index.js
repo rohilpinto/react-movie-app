@@ -48,7 +48,7 @@ const Movies = () => {
     <div>
       <MainWrapper>
         <GlobalStyle />
-        <SearchBar></SearchBar>
+        {/* <SearchBar></SearchBar> */}
         <MoviesHome popularMovies={popularMovies} setPopularMovies={setPopularMovies} isLoading={isLoading} setIsLoading={setIsLoading}></MoviesHome>
 
         <PageButtonWrapper>

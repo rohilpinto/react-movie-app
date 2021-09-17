@@ -20,7 +20,7 @@ const MovieCard = ({ movie, isLoading }) => {
     <>
       <div className="img-wrapper">
         {!imgLoaded ? <ClipLoader></ClipLoader> : null}
-        <Link to={`/${id}`}>
+        <Link to={`/movie/  ${id}`}>
           <img src={`https://image.tmdb.org/t/p/w200/${poster_path}`} alt="name" onLoad={() => setImgLoaded(true)} />
         </Link>
       </div>

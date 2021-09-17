@@ -31,3 +31,17 @@ export const setSearchValueAction = (data) => {
     payload: data,
   };
 };
+
+export const setFavoritesAction = (movie) => {
+  return {
+    type: "SET_FAVORITE",
+    payload: movie,
+  };
+};
+
+export const filterFavoritesAction = (id) => {
+  return {
+    type: "FILTER_FAVORITE",
+    payload: id,
+  };
+};
