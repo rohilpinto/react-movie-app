@@ -8,7 +8,7 @@ import rating from "../../assets/star-filled.svg";
 import genre from "../../assets/genre.svg";
 import yearLogo from "../../assets/year.svg";
 // import ClipLoader from "react-spinners/ClipLoader";
-
+import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 
 const SearchResults = ({ focus }) => {
@@ -28,7 +28,7 @@ const SearchResults = ({ focus }) => {
         return (
           <React.Fragment key={id}>
             <Link to={`/movie/${id}`}>
-              <ResultCard>
+              <ResultCard as={motion.div} initial={{ scale: 0.5, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.5 }}>
                 <MovieImageWrapper>
                   <MovieImage src={`https://image.tmdb.org/t/p/w200/${poster_path}`} onLoad={() => setImgLoaded(true)} />
                 </MovieImageWrapper>

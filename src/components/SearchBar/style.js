@@ -31,6 +31,7 @@ export const SearchInput = styled.input`
   border: 1px solid rgba(0, 0, 0);
   font-size: 20px;
   border: none;
+  color: white;
   border-radius: 5px;
   :focus-visible {
     outline: 3px dashed #8e9dff;
@@ -39,7 +40,7 @@ export const SearchInput = styled.input`
   background: linear-gradient(269.94deg, #04d5d5 0.05%, rgba(3, 255, 240, 0.794583) 155.99%);
   ::placeholder {
     color: white;
-    padding: 5px;
+    /* padding: 5px; */
   }
 `;
 

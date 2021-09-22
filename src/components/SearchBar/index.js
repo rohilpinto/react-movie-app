@@ -4,10 +4,10 @@ import { Link, useHistory } from "react-router-dom";
 import { SearchInput, SearchBarWrapper, Form, HamburgerWrapper, HamMenuIcon, FavoriteButtonWrapper, FavoriteButton } from "./style";
 import SearchResults from "../SearchResults";
 import MenuIcon from "../../assets/hamburger.svg";
-
+import { Divide as Hamburger } from "hamburger-react";
 import { useSelector, useDispatch } from "react-redux";
 import { setSearchValueAction, fetchSearchResults } from "../../state/actions";
-
+import SideMenu from "../SideMenu";
 import ButtonMain from "./../Button";
 
 const KEY = process.env.REACT_APP_MOVIE_API_KEY;
@@ -19,7 +19,7 @@ const SearchBar = () => {
   const searchValue = useSelector((state) => state.searchValueReducer);
   console.log(searchValue);
   const [focus, setFocus] = useState(true);
-
+  const [openMenu, setOpenMenu] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -46,8 +46,10 @@ const SearchBar = () => {
   console.log(focus);
   return (
     <SearchBarWrapper>
+      {openMenu ? <SideMenu toggled={openMenu} toggle={setOpenMenu}></SideMenu> : null}
       <HamburgerWrapper>
-        <HamMenuIcon src={MenuIcon} />
+        {/* <HamMenuIcon src={MenuIcon} /> */}
+        <Hamburger size={40} color="#4FD1C5" toggled={openMenu} toggle={setOpenMenu}></Hamburger>
       </HamburgerWrapper>
 
       <Form onSubmit={handleSubmit}>
