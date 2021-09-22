@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 
 import GlobalStyle from "../../GlobalStyles";
 import MoviesHome from "../MoviesHome/index";
+import styled from "styled-components";
+import { MainWrapper, PageButtonWrapper, TextWrapper, Arrows, ArrowsWrapper, PrevButton, NextButton } from "./style";
 
-import { MainWrapper, PageButtons, PageButtonWrapper, TextWrapper, Arrows, ArrowsWrapper } from "./style";
-import SearchBar from "../SearchBar";
+import ButtonMain from "../Button";
 import nextArrow from "../../assets/next-arrow.svg";
 import prevArrow from "../../assets/left-arrow.svg";
+
 const KEY = process.env.REACT_APP_MOVIE_API_KEY;
 
 const Movies = () => {
@@ -15,7 +17,7 @@ const Movies = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const url = `https://api.themoviedb.org/3/movie/popular?api_key=${KEY}&language=en-US&page=${page}`;
-
+  console.log(popularMovies);
   const fetchData = async () => {
     try {
       const response = await fetch(url);
@@ -52,15 +54,16 @@ const Movies = () => {
         <MoviesHome popularMovies={popularMovies} setPopularMovies={setPopularMovies} isLoading={isLoading} setIsLoading={setIsLoading}></MoviesHome>
 
         <PageButtonWrapper>
-          <PageButtons style={{ visibility: page > 1 ? "visible" : "hidden" }} onClick={() => setPage(page - 1)}>
+          <PrevButton page={page} onClick={() => setPage(page - 1)}>
             <ArrowsWrapper>
               <Arrows src={prevArrow}></Arrows>
             </ArrowsWrapper>
             <TextWrapper>
               <p>Previous</p>
             </TextWrapper>
-          </PageButtons>
-          <PageButtons className="next-btn" onClick={() => setPage(page + 1)}>
+          </PrevButton>
+
+          <NextButton className="next-btn" page={page} onClick={() => setPage(page + 1)}>
             <TextWrapper>
               <p>Next</p>
             </TextWrapper>
@@ -68,7 +71,7 @@ const Movies = () => {
             <ArrowsWrapper>
               <Arrows src={nextArrow}></Arrows>
             </ArrowsWrapper>
-          </PageButtons>
+          </NextButton>
         </PageButtonWrapper>
       </MainWrapper>
     </div>

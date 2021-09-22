@@ -21,13 +21,12 @@ const App = () => {
       <GlobalStyle></GlobalStyle>
       <ScrollToTop></ScrollToTop>
       <AppWrapper className="App">
-        <Favorites></Favorites>
-
         <SearchBar></SearchBar>
         <Switch>
           <Route path="/" exact component={Movies} />
           <Route path="/movie/:movieDetailsID" exact component={MovieDetails} />
           <Route path="/searched/:id" exact component={SearchedMovies} />
+          <Route path="/favorites" exact component={Favorites}></Route>
           {/* <Route component={ErrorPage} /> */}/
         </Switch>
       </AppWrapper>

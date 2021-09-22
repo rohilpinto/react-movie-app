@@ -6,7 +6,7 @@ export const SearchResultsWrapper = styled.div`
   /* height: fit-content; */
   box-sizing: border-box;
   /* min-height: ; */
-
+  /* display: ${(props) => (props.focus ? "none" : "block")}; */
   position: absolute;
   /* display: none; */
   top: 50px;

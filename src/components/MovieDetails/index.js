@@ -5,8 +5,7 @@ import { MovieDetailsContainer, MovieContentWrapper, MovieImage, MovieImageConta
 
 import { ReactComponent as FavoriteIconFilled } from "../../assets/favorite-filled.svg";
 import { ReactComponent as FavoriteIconUnFilled } from "../../assets/favorite-unfilled.svg";
-import { useSelector, useDispatch } from "react-redux";
-import { setFavoritesAction, filterFavoritesAction } from "../../state/actions";
+
 import { useParams } from "react-router";
 
 const KEY = process.env.REACT_APP_MOVIE_API_KEY;
@@ -18,10 +17,6 @@ const MovieDetails = () => {
 
   const { id, poster_path, original_title, overview } = movieDetails || {};
   const url = `https://api.themoviedb.org/3/movie/${movieDetailsID}?api_key=${KEY}`;
-
-  const favoriteList = useSelector((state) => state.setFavoriteReducer.favoriteList);
-  const filteredList = useSelector((state) => state.setFavoriteReducer.filteredFavoriteList);
-  const dispatchFavorite = useDispatch();
 
   useEffect(() => {
     const getDetails = async () => {
@@ -40,24 +35,51 @@ const MovieDetails = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [movieDetailsID]);
 
-  const AddToFavorites = () => {
-    dispatchFavorite(setFavoritesAction([id, original_title]));
 
+  
+
+  const AddToFavorites = () => {
     setFavorite(true);
+
+    const oldMovieCollection = JSON.parse(localStorage.getItem("MovieCollection"));
+
+    oldMovieCollection?.push({ id, poster_path, original_title });
+
+    localStorage.setItem("MovieCollection", JSON.stringify(oldMovieCollection));
   };
 
   const RemoveFromFavorites = () => {
-    // dispatchFavorite(filterFavoritesAction(id));
+    const allMovieCollection = JSON.parse(localStorage.getItem("MovieCollection"));
+
+    const filteredMovieCollection = allMovieCollection.filter((arr) => arr.id !== id);
+
+    localStorage.setItem("MovieCollection", JSON.stringify(filteredMovieCollection));
+
     setFavorite(false);
   };
 
-  useEffect(() => {
-    localStorage.setItem("movie", JSON.stringify(favoriteList));
-  }, [AddToFavorites]);
+  const checkFavorite = () => {
+    const MovieCollection = JSON.parse(localStorage.getItem("MovieCollection"));
+
+    const mapMovieCollection = MovieCollection.map((obj) => {
+      if (obj.id === id) {
+        setFavorite(true);
+      } else {
+        setFavorite(false);
+      }
+    });
+  };
 
   useEffect(() => {
-    console.log("filter", filteredList);
+    checkFavorite();
   });
+
+  useEffect(() => {
+    if (localStorage.getItem("MovieCollection") == null) {
+      localStorage.setItem("MovieCollection", "[]");
+    }
+  }, []);
+
   return (
     <MovieDetailsContainer>
       <MovieContentWrapper>

@@ -11,13 +11,14 @@ import yearLogo from "../../assets/year.svg";
 
 import { useSelector } from "react-redux";
 
-const SearchResults = () => {
+const SearchResults = ({ focus }) => {
   const movieGenreArray = MovieGeneres.genres;
   const [imgLoaded, setImgLoaded] = useState(false);
   const movieSearchResults = useSelector((state) => state.fetchedDataReducer);
-  console.log(movieSearchResults);
+  console.log("inresults", focus);
+
   return (
-    <SearchResultsWrapper>
+    <SearchResultsWrapper style={{ visibility: !focus ? "hidden" : "visible" }}>
       {movieSearchResults.data.results?.slice(0, 7).map(({ id, original_title, poster_path, release_date, vote_average, genre_ids }) => {
         const year = release_date?.slice(0, 4);
 

@@ -1,11 +1,12 @@
 import styled from "styled-components";
-
+import ButtonMain from "../Button";
 export const SearchBarWrapper = styled.div`
   max-width: 1400px;
-  margin: 0 auto 50px;
+  margin: 30px auto 50px auto;
   display: flex;
   /* border: 1px solid #000; */
   justify-content: space-between;
+  align-items: center;
 `;
 
 export const HamMenuIcon = styled.img`
@@ -42,8 +43,25 @@ export const SearchInput = styled.input`
   }
 `;
 
+export const FavoriteButtonWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+
 export const Form = styled.form`
   position: relative;
+`;
+
+export const FavoriteButton = styled(ButtonMain)`
+  width: 60px;
+  background: linear-gradient(269.94deg, #04d5d5 0.05%, rgba(3, 255, 240, 0.794583) 155.99%);
+  svg {
+    width: 100px;
+
+    /* &:hover {
+      fill: black;
+    } */
+  }
 `;
 
 // export const ReleaseDate = styled
