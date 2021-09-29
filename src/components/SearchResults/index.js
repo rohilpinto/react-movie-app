@@ -24,7 +24,9 @@ const SearchResults = ({ focus }) => {
 
         let final = movieGenreArray.filter((genre) => genre.id === genre_ids[2]);
 
+
         const vote = Math.ceil(vote_average) / 2;
+        
         return (
           <React.Fragment key={id}>
             <Link to={`/movie/${id}`}>

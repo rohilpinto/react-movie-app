@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 
 import { MovieDetailsContainer, MovieContentWrapper, MovieImage, MovieImageContainer, MovieTextContentWrapper, MovieTitle, TitleWrapper, IconWrapper, FavoriteIconImg, OverviewWrapper, Overview } from "./style";
 // import Loader from "react-loaders";
-
-import { ReactComponent as FavoriteIconFilled } from "../../assets/favorite-filled.svg";
-import { ReactComponent as FavoriteIconUnFilled } from "../../assets/favorite-unfilled.svg";
+import { motion } from "framer-motion";
+import FavoriteIconFilled from "../../assets/favorite-filled.svg";
+import FavoriteIconUnFilled from "../../assets/favorite-unfilled.svg";
 
 import { useParams } from "react-router";
 
@@ -35,44 +35,34 @@ const MovieDetails = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [movieDetailsID]);
 
-
-  
-
   const AddToFavorites = () => {
-    setFavorite(true);
-
     const oldMovieCollection = JSON.parse(localStorage.getItem("MovieCollection"));
 
     oldMovieCollection?.push({ id, poster_path, original_title });
 
     localStorage.setItem("MovieCollection", JSON.stringify(oldMovieCollection));
+
+    setFavorite(true);
   };
 
   const RemoveFromFavorites = () => {
+    setFavorite(false);
     const allMovieCollection = JSON.parse(localStorage.getItem("MovieCollection"));
 
-    const filteredMovieCollection = allMovieCollection.filter((arr) => arr.id !== id);
+    const filteredMovieCollection = allMovieCollection?.filter((arr) => arr.id !== id);
 
     localStorage.setItem("MovieCollection", JSON.stringify(filteredMovieCollection));
-
-    setFavorite(false);
   };
 
   const checkFavorite = () => {
     const MovieCollection = JSON.parse(localStorage.getItem("MovieCollection"));
 
-    const mapMovieCollection = MovieCollection.map((obj) => {
+    MovieCollection.map((obj) => {
       if (obj.id === id) {
         setFavorite(true);
-      } else {
-        setFavorite(false);
       }
     });
   };
-
-  useEffect(() => {
-    checkFavorite();
-  });
 
   useEffect(() => {
     if (localStorage.getItem("MovieCollection") == null) {
@@ -80,8 +70,12 @@ const MovieDetails = () => {
     }
   }, []);
 
+  useEffect(() => {
+    checkFavorite();
+  });
+
   return (
-    <MovieDetailsContainer>
+    <MovieDetailsContainer as={motion.div}>
       <MovieContentWrapper>
         <MovieImageContainer>
           <MovieImage src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt={original_title} />
@@ -93,7 +87,11 @@ const MovieDetails = () => {
             <IconWrapper>
               <h4>Add to favorites</h4>
 
-              {favorite ? <FavoriteIconFilled className="favorite-icon" onClick={RemoveFromFavorites} /> : <FavoriteIconUnFilled onClick={AddToFavorites} />}
+              {favorite ? (
+                <motion.img className="favorite-icon" onClick={RemoveFromFavorites} src={FavoriteIconFilled} as={motion.img} initial={{ scale: "0", rotate: "0" }} animate={{ scale: "1.3", rotate: "360deg" }} alt="favorite-button" />
+              ) : (
+                <motion.img onClick={AddToFavorites} className="favorite-icon" src={FavoriteIconUnFilled} alt="favorite-button" initial={{ scale: "0", rotate: "0" }} animate={{ scale: "1", rotate: "0deg" }} />
+              )}
             </IconWrapper>
           </TitleWrapper>
 

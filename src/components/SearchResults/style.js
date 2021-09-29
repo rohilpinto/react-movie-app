@@ -9,7 +9,7 @@ export const SearchResultsWrapper = styled.div`
   /* display: ${(props) => (props.focus ? "none" : "block")}; */
   position: absolute;
   /* display: none; */
-  top: 50px;
+  top: 60px;
   left: 5px;
   padding: 5px;
   margin: auto;

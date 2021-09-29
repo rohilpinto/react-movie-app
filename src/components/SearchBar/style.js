@@ -4,9 +4,17 @@ export const SearchBarWrapper = styled.div`
   max-width: 1400px;
   margin: 30px auto 50px auto;
   display: flex;
+  flex-direction: column;
   /* border: 1px solid #000; */
-  justify-content: space-between;
+  justify-content: center;
+
   align-items: center;
+`;
+
+export const SearchContentContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 `;
 
 export const HamMenuIcon = styled.img`
@@ -26,18 +34,19 @@ export const HamburgerWrapper = styled.div`
 export const SearchInput = styled.input`
   width: 500px;
   min-width: 300px;
-  padding: 3px 5px;
+
   height: 40px;
   border: 1px solid rgba(0, 0, 0);
   font-size: 20px;
   border: none;
   color: white;
   border-radius: 5px;
+  padding: 5px 20px;
   :focus-visible {
     outline: 3px dashed #8e9dff;
   }
-
-  background: linear-gradient(269.94deg, #04d5d5 0.05%, rgba(3, 255, 240, 0.794583) 155.99%);
+  font-weight: 600;
+  background: #05d3d3;
   ::placeholder {
     color: white;
     /* padding: 5px; */
@@ -47,6 +56,7 @@ export const SearchInput = styled.input`
 export const FavoriteButtonWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 `;
 
 export const Form = styled.form`
@@ -56,6 +66,7 @@ export const Form = styled.form`
 export const FavoriteButton = styled(ButtonMain)`
   width: 60px;
   background: linear-gradient(269.94deg, #04d5d5 0.05%, rgba(3, 255, 240, 0.794583) 155.99%);
+
   svg {
     width: 100px;
 

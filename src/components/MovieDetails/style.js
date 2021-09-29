@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const MovieDetailsContainer = styled.div`
   max-width: 1200px;
-  margin: auto;
+  margin: 120px auto;
   /* height: 200px; */
   color: black;
 `;
@@ -54,11 +54,11 @@ export const IconWrapper = styled.div`
   .favorite-icon {
     width: 30px;
     margin-left: 10px;
-    transition: all 0.1s;
+    /* transition: all 0.1s;
 
     &:active {
       transform: scale(0.9);
-    }
+    } */
   }
 `;
 
