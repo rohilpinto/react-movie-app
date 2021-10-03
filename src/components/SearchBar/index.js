@@ -1,16 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 
 import { Link, useHistory } from "react-router-dom";
-import { SearchInput, SearchBarWrapper, Form, HamburgerWrapper, HamMenuIcon, FavoriteButtonWrapper, FavoriteButton, HomeContainer, SearchContentContainer, HomeButton } from "./style";
+import { SearchInput, SearchBarWrapper, Form, HamburgerWrapper, FavoriteButtonWrapper, FavoriteButton, SearchContentContainer } from "./style";
 import SearchResults from "../SearchResults";
-import MenuIcon from "../../assets/hamburger.svg";
+
 import { Divide as Hamburger } from "hamburger-react";
 import { useSelector, useDispatch } from "react-redux";
 import { setSearchValueAction, fetchSearchResults } from "../../state/actions";
 import SideMenu from "../SideMenu";
-import ButtonMain from "./../Button";
-
-const KEY = process.env.REACT_APP_MOVIE_API_KEY;
 
 const SearchBar = () => {
   const history = useHistory();
@@ -28,13 +25,9 @@ const SearchBar = () => {
     dispatch(setSearchValueAction(""));
   };
 
-  const handleHomeButton = () => {
-    history.push("/");
-  };
-
   useEffect(() => {
     dispatch(fetchSearchResults());
-  }, [searchValue, focus]);
+  }, [searchValue, focus]); 
 
   useEffect(() => {
     inputRef.current.addEventListener("focusout", () => {

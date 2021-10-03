@@ -30,7 +30,7 @@ const SearchedMovies = () => {
     };
 
     fetchSearched();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const [imgLoaded, setImgLoaded] = useState(false);
 

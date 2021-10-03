@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { MovieDetailsContainer, MovieContentWrapper, MovieImage, MovieImageContainer, MovieTextContentWrapper, MovieTitle, TitleWrapper, IconWrapper, FavoriteIconImg, OverviewWrapper, Overview } from "./style";
+import { MovieDetailsContainer, MovieContentWrapper, MovieImage, MovieImageContainer, MovieTextContentWrapper, MovieTitle, TitleWrapper, IconWrapper, OverviewWrapper, Overview } from "./style";
 // import Loader from "react-loaders";
 import { motion } from "framer-motion";
 import FavoriteIconFilled from "../../assets/favorite-filled.svg";
@@ -58,9 +58,7 @@ const MovieDetails = () => {
     const MovieCollection = JSON.parse(localStorage.getItem("MovieCollection"));
 
     MovieCollection.map((obj) => {
-      if (obj.id === id) {
-        setFavorite(true);
-      }
+      if (obj.id === id) setFavorite(true);
     });
   };
 

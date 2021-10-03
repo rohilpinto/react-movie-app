@@ -2,10 +2,9 @@ import React, { useState, useEffect } from "react";
 
 import GlobalStyle from "../../GlobalStyles";
 import MoviesHome from "../MoviesHome/index";
-import styled from "styled-components";
+
 import { MainWrapper, PageButtonWrapper, TextWrapper, Arrows, ArrowsWrapper, PrevButton, NextButton } from "./style";
 
-import ButtonMain from "../Button";
 import nextArrow from "../../assets/next-arrow.svg";
 import prevArrow from "../../assets/left-arrow.svg";
 
