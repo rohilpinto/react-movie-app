@@ -13,7 +13,7 @@ import { useSelector } from "react-redux";
 
 const SearchResults = ({ focus }) => {
   const movieGenreArray = MovieGeneres.genres;
-  const [imgLoaded, setImgLoaded] = useState(false);
+  const [, setImgLoaded] = useState(false);
   const movieSearchResults = useSelector((state) => state.fetchedDataReducer);
   console.log("inresults", focus);
 
@@ -24,9 +24,8 @@ const SearchResults = ({ focus }) => {
 
         let final = movieGenreArray.filter((genre) => genre.id === genre_ids[2]);
 
-
         const vote = Math.ceil(vote_average) / 2;
-        
+
         return (
           <React.Fragment key={id}>
             <Link to={`/movie/${id}`}>

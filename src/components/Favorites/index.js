@@ -3,8 +3,8 @@ import { useState } from "react";
 import { ContentContainer } from "./style";
 import { Link } from "react-router-dom";
 const Favorites = () => {
-  const [imgLoaded, setImgLoaded] = useState(false);
-  
+  const [, setImgLoaded] = useState(false);
+
   const favoriteMovies = JSON.parse(localStorage.getItem("MovieCollection"));
   // const ParseFavItemsArr = FavoritedItemsArr;
 
