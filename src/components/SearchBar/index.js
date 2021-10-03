@@ -27,7 +27,7 @@ const SearchBar = () => {
 
   useEffect(() => {
     dispatch(fetchSearchResults());
-  }, [searchValue, focus]); 
+  }, [searchValue, focus, dispatch]);
 
   useEffect(() => {
     inputRef.current.addEventListener("focusout", () => {

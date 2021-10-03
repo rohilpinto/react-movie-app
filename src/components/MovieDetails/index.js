@@ -56,9 +56,10 @@ const MovieDetails = () => {
 
   const checkFavorite = () => {
     const MovieCollection = JSON.parse(localStorage.getItem("MovieCollection"));
-
-    MovieCollection.map((obj) => {
-      if (obj.id === id) setFavorite(true);
+    MovieCollection.forEach((obj) => {
+      if (obj.id === id) {
+        setFavorite(true);
+      }
     });
   };
 
