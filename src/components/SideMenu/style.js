@@ -8,9 +8,9 @@ export const SidebarWrapperContainer = styled.div`
   backdrop-filter: blur(50px);
   position: fixed;
   bottom: 0;
-
+  overflow-y: scroll;
   z-index: 10;
-
+  padding-right: 15px;
   .hamButtonWrapper {
     display: flex;
     justify-content: flex-end;
@@ -37,7 +37,7 @@ export const HomeButton = styled(ButtonMain)`
 
 export const CategoriesWrapper = styled.div`
   padding: 15px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 `;
 
 export const CategoriesButton = styled.div`
@@ -52,4 +52,13 @@ export const CategoriesButton = styled.div`
   justify-content: center;
   align-items: center;
   color: hsl(0deg 0% 13% / 78%);
+  transition: all 0.1s ease-out;
+
+  &:hover {
+    background-color: hsl(0deg 0% 98% / 75%);
+  }
+  &:active {
+    background-color: hsl(0deg 0% 98% / 95%);
+    transform: scale(0.9);
+  }
 `;
