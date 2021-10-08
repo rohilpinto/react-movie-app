@@ -1,8 +1,10 @@
 import React from "react";
+import { MovieGeneres } from "../../MovieGeneres";
 import { Divide as Hamburger } from "hamburger-react";
-import { SidebarWrapperContainer, HomeButton } from "./style";
+import { SidebarWrapperContainer, HomeButton, CategoriesButton, CategoriesWrapper } from "./style";
 import { useHistory } from "react-router";
 import { motion } from "framer-motion";
+
 const SideMenu = ({ toggle, toggled }) => {
   const history = useHistory();
 
@@ -22,6 +24,12 @@ const SideMenu = ({ toggle, toggled }) => {
             <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
           </svg>
         </HomeButton>
+
+        <CategoriesWrapper>
+          {MovieGeneres.genres.map(({ id, name }) => {
+            return <CategoriesButton key={id}>{name}</CategoriesButton>;
+          })}
+        </CategoriesWrapper>
       </SidebarWrapperContainer>
     </>
   );

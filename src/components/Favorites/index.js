@@ -1,15 +1,18 @@
 import { useState } from "react";
-
+import { Helmet } from "react-helmet";
 import { ContentContainer } from "./style";
 import { Link } from "react-router-dom";
 const Favorites = () => {
   const [, setImgLoaded] = useState(false);
 
   const favoriteMovies = JSON.parse(localStorage.getItem("MovieCollection"));
-  // const ParseFavItemsArr = FavoritedItemsArr;
 
   return (
     <ContentContainer>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Favorites</title>
+      </Helmet>
       {favoriteMovies?.map(({ id, original_title, poster_path }) => {
         return (
           <div>

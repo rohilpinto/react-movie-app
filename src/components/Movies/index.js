@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import GlobalStyle from "../../GlobalStyles";
 import MoviesHome from "../MoviesHome/index";
+import { Helmet } from "react-helmet";
 
 import { MainWrapper, PageButtonWrapper, TextWrapper, Arrows, ArrowsWrapper, PrevButton, NextButton } from "./style";
 
@@ -48,8 +49,12 @@ const Movies = () => {
   return (
     <div>
       <MainWrapper>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Movies | Home</title>
+        </Helmet>
         <GlobalStyle />
-        {/* <SearchBar></SearchBar> */}
+
         <MoviesHome popularMovies={popularMovies} setPopularMovies={setPopularMovies} isLoading={isLoading} setIsLoading={setIsLoading}></MoviesHome>
 
         <PageButtonWrapper>

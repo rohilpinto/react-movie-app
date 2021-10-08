@@ -6,7 +6,7 @@ export const SidebarWrapperContainer = styled.div`
 
   background: rgba(92, 226, 255, 0.48);
   backdrop-filter: blur(50px);
-  position: absolute;
+  position: fixed;
   bottom: 0;
 
   z-index: 10;
@@ -20,7 +20,7 @@ export const SidebarWrapperContainer = styled.div`
 export const HomeButton = styled(ButtonMain)`
   display: flex;
   justify-content: center;
-  /* background: linear-gradient(269.94deg, #04d5d5 0.05%, rgba(3, 255, 240, 0.794583) 155.99%); */
+
   margin: 50px auto;
   background: none;
   backdrop-filter: blur(20px);
@@ -32,9 +32,24 @@ export const HomeButton = styled(ButtonMain)`
 
   svg {
     width: 25px;
-
-    /* &:hover {
-      fill: black;
-    } */
   }
+`;
+
+export const CategoriesWrapper = styled.div`
+  padding: 15px;
+  border: 1px solid red;
+`;
+
+export const CategoriesButton = styled.div`
+  width: 290px;
+  border-radius: 8px;
+  padding: 5px;
+  height: 50px;
+  font-size: 22px;
+  display: flex;
+  margin: 10px auto;
+  background-color: hsl(0deg 0% 98% / 45%);
+  justify-content: center;
+  align-items: center;
+  color: hsl(0deg 0% 13% / 78%);
 `;

@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import rating from "../../assets/star-filled.svg";
 import genre from "../../assets/genre.svg";
 import yearLogo from "../../assets/year.svg";
-// import ClipLoader from "react-spinners/ClipLoader";
+ 
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 

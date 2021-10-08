@@ -46,12 +46,10 @@ const SearchBar = () => {
         <SearchContentContainer>
           {openMenu ? <SideMenu toggled={openMenu} toggle={setOpenMenu}></SideMenu> : null}
           <HamburgerWrapper>
-            {/* <HamMenuIcon src={MenuIcon} /> */}
             <Hamburger size={40} color="#4FD1C5" toggled={openMenu} toggle={setOpenMenu}></Hamburger>
           </HamburgerWrapper>
 
           <Form onSubmit={handleSubmit}>
-            {/* <SearchInput type="text" value={value} placeholder="Movie Name" onChange={(e) => setValue(e.target.value)} /> */}
             <SearchInput ref={inputRef} type="text" value={searchValue} placeholder="Enter movie name" onChange={(e) => dispatch(setSearchValueAction(e.target.value))} />
 
             {searchValue !== "" ? <SearchResults focus={focus}></SearchResults> : null}
@@ -67,14 +65,6 @@ const SearchBar = () => {
             </Link>
           </FavoriteButtonWrapper>
         </SearchContentContainer>
-
-        {/* <HomeContainer>
-          <HomeButton>
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
-            </svg>
-          </HomeButton>
-        </HomeContainer> */}
       </SearchBarWrapper>
     </>
   );
